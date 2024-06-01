@@ -1,5 +1,5 @@
 # Define software download URLs.
-ARG QLC_URL=https://www.qlcplus.org/downloads/4.13.0/qlcplus_4.13.0_amd64.deb
+ARG QLC_URL=https://www.qlcplus.org/downloads/4.13.1/qlcplus_4.13.1_amd64.deb
 
 # Pull base image.
 FROM jlesage/baseimage-gui:ubuntu-22.04-v4
