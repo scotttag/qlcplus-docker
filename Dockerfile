@@ -35,4 +35,9 @@ RUN apt-get clean
 
 RUN dpkg -i /tmp/qlcplus.deb
 
+ENV \
+	OPERATE_MODE= \
+	QLC_WEB_SERVER= \
+	WORKSPACE_FILE=
+
 COPY rootfs/ /
