@@ -2,7 +2,7 @@
 ARG QLC_URL=https://www.qlcplus.org/downloads/4.13.1/qlcplus_4.13.1_amd64.deb
 
 # Pull base image.
-FROM jlesage/baseimage-gui:ubuntu-22.04-v4.6.4
+FROM jlesage/baseimage-gui:ubuntu-22.04-v4.6.7
 
 # Define working directory.
 WORKDIR /tmp
