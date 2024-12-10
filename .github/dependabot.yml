@@ -16,6 +16,6 @@ updates:
 registries:
   docker_hub:
     type: "docker-registry"
-    url: "https://index.docker.io/v1/"
+    url: "https://index.docker.io"
     username: "${{ secrets.DOCKER_USERNAME }}"
     password: "${{ secrets.DOCKER_PASSWORD }}"
