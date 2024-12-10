@@ -9,3 +9,13 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    allow:
+      - dependency-type: "all"
+    registries:
+      - docker_hub # Reference the Docker registry config
+registries:
+  docker_hub:
+    type: "docker-registry"
+    url: "https://index.docker.io/v1/"
+    username: "${{ secrets.DOCKER_USERNAME }}"
+    password: "${{ secrets.DOCKER_PASSWORD }}"
