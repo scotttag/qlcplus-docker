@@ -1,5 +1,5 @@
-# Define software download URLs.
-ARG QLC_URL=https://www.qlcplus.org/downloads/4.14.1/qlcplus_4.14.1_amd64.deb
+# Define QLC .deb
+ARG QLC_VER=4.14.1
 
 # Pull base image.
 FROM jlesage/baseimage-gui:ubuntu-22.04-v4.7.1
@@ -7,9 +7,9 @@ FROM jlesage/baseimage-gui:ubuntu-22.04-v4.7.1
 # Define working directory.
 WORKDIR /tmp
 
-ARG QLC_URL
+ARG QLC_VER
 
-ADD $QLC_URL /tmp/qlcplus.deb
+ADD qlcplus_${QLC_VER}_amd64.deb /tmp/qlcplus.deb
 
 RUN apt-get update
 
@@ -35,6 +35,8 @@ RUN \
 RUN apt-get clean
 
 RUN dpkg -i /tmp/qlcplus.deb
+
+RUN rm /tmp/qlcplus.deb
 
 ENV \
 	OPERATE_MODE= \
