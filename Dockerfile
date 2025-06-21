@@ -2,7 +2,7 @@
 ARG QLC_VER=4.14.1
 
 # Pull base image.
-FROM jlesage/baseimage-gui:ubuntu-22.04-v4.7.1
+FROM jlesage/baseimage-gui:ubuntu-22.04-v4.8.0
 
 # Define working directory.
 WORKDIR /tmp
