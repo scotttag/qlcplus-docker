@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  qlcplus:
+    image: scotttag/qlcplus-docker:latest
+    container_name: qlcplus
+    restart: unless-stopped
+    
+    ports:
+      - "5800:5800"  # Web interface
+      - "5900:5900"  # VNC
+      - "9999:9999"  # QLC+ web server (optional)
+    
+    volumes:
+      - qlcplus-data:/data:rw
+      # Uncomment the following lines to mount custom content:
+      # - ./fixtures:/usr/share/qlcplus/fixtures/custom:ro
+    
+    environment:
+      # Set to 'true' to enable QLC+ web server on port 9999
+      # - QLC_WEB_SERVER=true
+      
+      # Set to 'true' to start in operate mode (performance mode)
+      # - OPERATE_MODE=true
+      
+      # Path to workspace file to auto-load at startup
+      # - WORKSPACE_FILE=/data/show.qxw
+      
+      # Set VNC password for secure access (recommended)
+      # - VNC_PASSWORD=your_secure_password
+    
+    healthcheck:
+      test: ["CMD", "pgrep", "qlcplus"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  qlcplus-data:
+    driver: local

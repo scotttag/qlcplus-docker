@@ -1,1 +1,29 @@
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# Documentation
 README.md
+*.md
+docs/
+
+# Development files
+.vscode/
+.idea/
+*.log
+*.tmp
+
+# Docker files (except Dockerfile)
+docker-compose*.yml
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Build artifacts
+build/
+dist/
+target/
