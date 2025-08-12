@@ -10,6 +10,9 @@ ADD qlcplus_${QLC_VER}_amd64.deb /tmp/qlcplus.deb
 # Pull base image with version pinning
 FROM jlesage/baseimage-gui:${BASEIMAGE_VER}
 
+# Re-declare ARG for use in this stage
+ARG QLC_VER
+
 # Add metadata labels
 LABEL maintainer="scotttag" \
       version="${QLC_VER}" \
@@ -49,8 +52,7 @@ RUN mkdir -p /usr/share/qlcplus/fixtures/custom
 # Environment variables with better documentation
 ENV OPERATE_MODE="" \
     QLC_WEB_SERVER="" \
-    WORKSPACE_FILE="" \
-    VNC_PASSWORD=""
+    WORKSPACE_FILE=""
 
 # Expose necessary ports
 EXPOSE 5800 5900 9999
