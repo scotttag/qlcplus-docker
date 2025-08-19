@@ -13,8 +13,8 @@ QLC+ lighting control software implemented in a Docker container with VNC and we
 
 | Variable | Description | Default | Example |
 |----------|-------------|---------|---------|
-| `OPERATE_MODE` | Start QLC+ in operate mode (performance mode) | `""` | `true` |
-| `QLC_WEB_SERVER` | Enable QLC+ web server on port 9999 | `""` | `true` |
+| `OPERATE_MODE` | Start QLC+ in operate mode (performance mode) | `false` | `true` |
+| `QLC_WEB_SERVER` | Enable QLC+ web server on port 9999 | `false` | `true` |
 | `WORKSPACE_FILE` | QLC+ workspace file to open at startup | `""` | `/data/show.qxw` |
 | `VNC_PASSWORD` | Set VNC password for secure access | `""` | `mypassword` |
 
