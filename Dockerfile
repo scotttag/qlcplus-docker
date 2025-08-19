@@ -1,6 +1,6 @@
 # Define QLC+ version
 ARG QLC_VER=4.14.3
-ARG BASEIMAGE_VER=ubuntu-22.04-v4.9.0
+ARG BASEIMAGE_VER=ubuntu-24.04-v4.9.0
 
 # Multi-stage build for better layer caching
 FROM ubuntu:24.04 AS downloader
@@ -29,7 +29,7 @@ COPY --from=downloader /tmp/qlcplus.deb /tmp/qlcplus.deb
 RUN apt-get update && \
     apt-get dist-upgrade -y && \
     apt-get -y install \
-        libasound2 \
+        libasound2-dev \
         libfftw3-double3 \
         libftdi1-2 \
         libqt5core5a \
