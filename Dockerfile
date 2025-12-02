@@ -1,6 +1,6 @@
 # Define QLC+ version
 ARG QLC_VER=4.14.3
-ARG BASEIMAGE_VER=ubuntu-24.04-v4.10.0
+ARG BASEIMAGE_VER=ubuntu-24.04-v4.10.1
 
 # Multi-stage build for better layer caching
 FROM ubuntu:24.04 AS downloader
