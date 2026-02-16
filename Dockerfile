@@ -1,6 +1,5 @@
 # Define QLC+ version
 ARG QLC_VER=4.14.3
-ARG BASEIMAGE_VER=ubuntu-24.04-v4.10.7
 
 # Multi-stage build for better layer caching
 FROM ubuntu:24.04 AS downloader
@@ -8,7 +7,7 @@ ARG QLC_VER
 ADD qlcplus_${QLC_VER}_amd64.deb /tmp/qlcplus.deb
 
 # Pull base image with version pinning
-FROM jlesage/baseimage-gui:${BASEIMAGE_VER}
+FROM jlesage/baseimage-gui:ubuntu-24.04-v4.10.7
 
 # Re-declare ARG for use in this stage
 ARG QLC_VER
