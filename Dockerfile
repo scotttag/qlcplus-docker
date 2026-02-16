@@ -7,7 +7,7 @@ ARG QLC_VER
 ADD qlcplus_${QLC_VER}_amd64.deb /tmp/qlcplus.deb
 
 # Pull base image with version pinning
-FROM jlesage/baseimage-gui:ubuntu-24.04-v4.10.7
+FROM jlesage/baseimage-gui:ubuntu-24.04-v4.11.0
 
 # Re-declare ARG for use in this stage
 ARG QLC_VER
