@@ -1,5 +1,5 @@
 # Define QLC+ version
-ARG QLC_VER=4.14.3
+ARG QLC_VER=4.14.4
 
 # Multi-stage build for better layer caching
 FROM ubuntu:24.04 AS downloader
@@ -28,19 +28,24 @@ COPY --from=downloader /tmp/qlcplus.deb /tmp/qlcplus.deb
 RUN apt-get update && \
     apt-get dist-upgrade -y && \
     apt-get -y install \
-        libasound2-dev \
+        libasound2t64 \
+	libc6 \
         libfftw3-double3 \
         libftdi1-2 \
-        libqt5core5a \
-        libqt5gui5 \
-        libqt5multimedia5 \
-        libqt5multimediawidgets5 \
-        libqt5network5 \
-        libqt5script5 \
-        libqt5widgets5 \
-        libqt5serialport5 \
-        libqt5websockets5 \
-        libusb-1.0-0 && \
+	libgcc-s1 \
+        libusb-1.0-0 \
+	libqt6core6t64 \
+	libqt6gui6t64 \
+	libqt6multimedia6 \
+	libqt6multimediawidgets6 \
+	libqt6network6t64 \
+	libqt6qml6 \
+	libqt6serialport6 \
+	libqt6websockets6 \
+	libqt6widgets6t64 \
+	libstdc++6 \
+	libudev1 \
+	qt6-websockets-abi && \
     dpkg -i /tmp/qlcplus.deb && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/qlcplus.deb
