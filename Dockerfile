@@ -2,7 +2,7 @@
 ARG QLC_VER=4.14.4
 
 # Multi-stage build for better layer caching
-FROM ubuntu:24.04 AS downloader
+FROM ubuntu:26.04 AS downloader
 ARG QLC_VER
 ADD qlcplus_${QLC_VER}_amd64.deb /tmp/qlcplus.deb
 
