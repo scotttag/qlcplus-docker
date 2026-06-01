@@ -25,7 +25,8 @@ WORKDIR /tmp
 COPY --from=downloader /tmp/qlcplus.deb /tmp/qlcplus.deb
 
 # Install dependencies and QLC+ in a single layer
-RUN apt-get update && \
+RUN rm /var/log && \
+	apt-get update && \
 	apt-get -y dist-upgrade && \
     apt-get -y install \
         libasound2t64 \
@@ -48,7 +49,9 @@ RUN apt-get update && \
 	qt6-websockets-abi && \
     dpkg -i /tmp/qlcplus.deb && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/qlcplus.deb
+    rm -rf /var/lib/apt/lists/* /tmp/qlcplus.deb && \
+	rm -r /var/log && \
+	ln -s /config/log /var/log
 
 # Create directory for custom fixtures
 RUN mkdir -p /usr/share/qlcplus/fixtures/custom
