@@ -2,12 +2,12 @@
 ARG QLC_VER=4.14.4
 
 # Multi-stage build for better layer caching
-FROM ubuntu:26.04 AS downloader
+FROM ubuntu:24.04 AS downloader
 ARG QLC_VER
 ADD qlcplus_${QLC_VER}_amd64.deb /tmp/qlcplus.deb
 
 # Pull base image with version pinning
-FROM jlesage/baseimage-gui:ubuntu-26.04-v4.12.2
+FROM jlesage/baseimage-gui:ubuntu-24.04-v4.12.2
 
 # Re-declare ARG for use in this stage
 ARG QLC_VER
@@ -26,6 +26,7 @@ COPY --from=downloader /tmp/qlcplus.deb /tmp/qlcplus.deb
 
 # Install dependencies and QLC+ in a single layer
 RUN apt-get update && \
+	apt-get dist-upgrade && \
     apt-get -y install \
         libasound2t64 \
 	libc6 \
