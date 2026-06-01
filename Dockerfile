@@ -26,7 +26,6 @@ COPY --from=downloader /tmp/qlcplus.deb /tmp/qlcplus.deb
 
 # Install dependencies and QLC+ in a single layer
 RUN apt-get update && \
-    apt-get dist-upgrade -y && \
     apt-get -y install \
         libasound2t64 \
 	libc6 \
