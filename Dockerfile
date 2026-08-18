@@ -1,5 +1,5 @@
 # Pull base image with version pinning
-FROM jlesage/baseimage-gui:ubuntu-26.04-v4.13.0
+FROM jlesage/baseimage-gui:ubuntu-26.04-v4.13.2
 
 # Define QLC+ version
 ARG QLC_VER=4.14.4
