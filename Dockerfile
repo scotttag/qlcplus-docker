@@ -1,5 +1,5 @@
 # Pull base image with version pinning
-FROM jlesage/baseimage-gui:ubuntu-26.04-v4.12.5
+FROM jlesage/baseimage-gui:ubuntu-26.04-v4.13.0
 
 # Define QLC+ version
 ARG QLC_VER=4.14.4
@@ -11,15 +11,18 @@ LABEL maintainer="scotttag" \
       org.opencontainers.image.source="https://github.com/scotttag/qlcplus-docker"
 
 # Install dependencies and QLC+ in a single layer
-RUN \
-	apt-get update && \
-	apt-get -y dist-upgrade && \
-	rm /var/log && \
-	apt-get -y install qlcplus || true && \
-	dpkg --remove --force-remove-reinstreq systemd-resolved && \
-	apt --fix-broken install && \
-	apt-get clean && \
-	ln -s /config/log /var/log
+#RUN \
+#	apt-get update && \
+#	apt-get -y dist-upgrade && \
+#	rm /var/log && \
+#	apt-get -y install qlcplus || true && \
+#	dpkg --remove --force-remove-reinstreq systemd-resolved && \
+#	apt --fix-broken install && \
+#	apt-get clean && \
+#	ln -s /config/log /var/log
+
+# Install from main repo since it's finally up to date
+RUN add-pkg qlcplus
 
 # Create directory for custom fixtures
 RUN mkdir -p /usr/share/qlcplus/fixtures/custom
